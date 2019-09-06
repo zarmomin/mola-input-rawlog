@@ -47,8 +47,8 @@ void RawlogDataset::initialize(const std::string& cfg_block)
     auto cfg = c["params"];
     MRPT_LOG_DEBUG_STREAM("Initializing with these params:\n" << cfg);
 
-    yamlLoadMemberReq<std::string>(cfg, "rawlog_filename", rawlog_filename);
-    yamlLoadMemberOpt<double>(cfg, "time_warp_scale", time_warp_scale);
+    yamlLoadMemberReq<std::string>(cfg, "rawlog_filename", &rawlog_filename);
+    yamlLoadMemberOpt<double>(cfg, "time_warp_scale", &time_warp_scale);
 
     ASSERT_FILE_EXISTS_(rawlog_filename_);
     if (!rawlog_in_.open(rawlog_filename_))
